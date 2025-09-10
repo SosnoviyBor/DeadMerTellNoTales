@@ -1,0 +1,1 @@
+- Faction inheritance - if NPC is listed in any faction, item ownership is transfered to the faction instead of removing
