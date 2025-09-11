@@ -1,0 +1,19 @@
+page_name: Dead Mer Tell No Tales
+page_description: When an NPC dies or disappears, they no longer own anything.
+
+recording_groupName: Recording
+recordKilled_name: Record Killed Actors
+recordDisabled_name: Record Disabled Actors
+recordDisabled_description: When actor disappears during quest or with "disable" command.
+
+objectTypes_groupName: Object Types
+objectTypes_groupDescription: |
+  An object's ownership is checked each time it's loaded by the player.
+disownItems_name: Disown Items
+disownContainers_name: Disown Containers
+disownActivators_name: Disown Activators
+disownActivators_description: Beds, levers etc.
+disownDoors_name: Disown Doors
+
+debug_groupName: Debug
+debugEnabled_name: Enable Debug Messages
