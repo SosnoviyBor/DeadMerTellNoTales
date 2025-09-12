@@ -5,6 +5,7 @@ I.Settings.registerGroup {
     page = 'DeadMerTellNoTales',
     l10n = 'DeadMerTellNoTales',
     name = 'recording_groupName',
+    description = 'recording_groupDescription',
     order = 1,
     permanentStorage = true,
     settings = {

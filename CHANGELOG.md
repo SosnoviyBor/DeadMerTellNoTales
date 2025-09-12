@@ -1,12 +1,18 @@
 # Dead Mer Tell No Tales (OpenMW)
 
+## 1.1.1
+
+### Changes
+
+- Minor text tweaks
+
 ## 1.1
 
 ### !! Dead actor list will reset on this mod update !! (hopefully for the last time)
 
 ### Features
 
-- Disabled actors support
+- Added disabled actors support
 - Added mod options
   - Toggle for recording killed actors
   - Toggle for recording disabled actors (via quest or `disable` command)
