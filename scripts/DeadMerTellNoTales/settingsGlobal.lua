@@ -1,7 +1,7 @@
 local I = require('openmw.interfaces')
 
 I.Settings.registerGroup {
-    key = 'DeadMerTellNoTales_recording',
+    key = 'SettingsDeadMerTellNoTales_recording',
     page = 'DeadMerTellNoTales',
     l10n = 'DeadMerTellNoTales',
     name = 'recording_groupName',
@@ -26,7 +26,7 @@ I.Settings.registerGroup {
 }
 
 I.Settings.registerGroup {
-    key = 'DeadMerTellNoTales_objectTypes',
+    key = 'SettingsDeadMerTellNoTales_objectTypes',
     page = 'DeadMerTellNoTales',
     l10n = 'DeadMerTellNoTales',
     name = 'objectTypes_groupName',
@@ -63,7 +63,7 @@ I.Settings.registerGroup {
 }
 
 I.Settings.registerGroup {
-    key = 'DeadMerTellNoTales_debug',
+    key = 'SettingsDeadMerTellNoTales_debug',
     page = 'DeadMerTellNoTales',
     l10n = 'DeadMerTellNoTales',
     name = 'debug_groupName',

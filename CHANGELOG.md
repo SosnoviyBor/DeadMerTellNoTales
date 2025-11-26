@@ -1,5 +1,11 @@
 # Dead Mer Tell No Tales (OpenMW)
 
+## 1.1.2
+
+### Fixes
+
+- Fixed internal naming to reduce warnings in the log
+
 ## 1.1.1
 
 ### Changes

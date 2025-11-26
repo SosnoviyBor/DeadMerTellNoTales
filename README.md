@@ -10,19 +10,15 @@ Go, do a crime.
 
 *Indirectly allows you to legally obtain several player homes throughout the game - even as early as your first arrival in Seyda Neen.*
 
-## Requirements
-
-OpenMW, duh.
-
-## Installation
-
-Install like any other OpenMW mod.
-
 ## Compatibility
 
 The mod assumes everyone is unique. If you have two NPCs with the same ID (including those created via the `placeatpc` command), killing one will remove ownership regardless of whether the other is alive.
 
 Installing mid-playthrough won't update ownership for NPCs who are already dead (can be fixed by using `placeatpc` command). Ownership also won't revert to its initial state after uninstalling the mod.
+
+### Incompatible mods
+
+- [Go Home!](https://modding-openmw.gitlab.io/go-home/) (but adding compatibility for it is planned)
 
 ## Other Mods to Enhance Your Pillaging Experience
 
@@ -32,4 +28,4 @@ Installing mid-playthrough won't update ownership for NPCs who are already dead 
 
 Author: **Sosnoviy Bor**
 
-The mod was inspired by [MWSE Disown the Departed](https://www.nexusmods.com/morrowind/mods/55315) made by **Pherim**.
+Inspired by [MWSE Disown the Departed](https://www.nexusmods.com/morrowind/mods/55315) by **Pherim**.

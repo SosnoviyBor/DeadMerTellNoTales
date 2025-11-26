@@ -6,9 +6,9 @@ local core = require("openmw.core")
 
 require("scripts.DeadMerTellNoTales.utils.tables")
 
-local sectionRecording = storage.globalSection("DeadMerTellNoTales_recording")
-local sectionObjTypes = storage.globalSection("DeadMerTellNoTales_objectTypes")
-local sectionDebug = storage.globalSection("DeadMerTellNoTales_debug")
+local sectionRecording = storage.globalSection("SettingsDeadMerTellNoTales_recording")
+local sectionObjTypes = storage.globalSection("SettingsDeadMerTellNoTales_objectTypes")
+local sectionDebug = storage.globalSection("SettingsDeadMerTellNoTales_debug")
 
 local function ownershipFilter(object)
     return object.owner.recordId == self.recordId

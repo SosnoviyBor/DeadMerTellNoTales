@@ -3,7 +3,7 @@ local storage = require("openmw.storage")
 require("scripts.DeadMerTellNoTales.blacklists")
 
 DeadActors = {}
-local sectionDebug = storage.globalSection("DeadMerTellNoTales_debug")
+local sectionDebug = storage.globalSection("SettingsDeadMerTellNoTales_debug")
 
 local function onSave()
     return DeadActors
