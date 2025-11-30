@@ -38,7 +38,8 @@ local function checkActorStatus(object)
     if not DeadActors[object.owner.recordId] then return end
     
     if ActorBlacklist[string.lower(object.owner.recordId)]
-       or CellBlacklist[string.lower(object.cell.name)] then
+       or CellBlacklist[string.lower(object.cell.name)]
+    then
         return
 
     elseif object.cell.isExterior then

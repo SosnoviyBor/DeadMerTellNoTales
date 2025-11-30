@@ -1,5 +1,11 @@
 # Dead Mer Tell No Tales (OpenMW)
 
+## 1.1.3
+
+### Changes
+
+- Guards and ordinators don't disown their items anymore
+
 ## 1.1.2
 
 ### Fixes

@@ -14,7 +14,17 @@ local function ownershipFilter(object)
     return object.owner.recordId == self.recordId
 end
 
+local function isGuard(actor)
+    return string.find(actor.recordId, "guard")
+        or string.find(actor.recordId, "ordinator")
+        or actor.type.records[actor.recordId].class == "guard"
+        or actor.type.records[actor.recordId].class == "ordinator"
+end
+
 local function removeOwnership()
+    -- guards are ignored completely
+    if isGuard(self) then return end
+
     local disownItems      = sectionObjTypes:get("disownItems")
     local disownContainers = sectionObjTypes:get("disownContainers")
     local disownActivators = sectionObjTypes:get("disownActivators")
