@@ -1,4 +1,6 @@
 NPC, CREATURE: scripts/DeadMerTellNoTales/actor.lua
+PLAYER: scripts/DeadMerTellNoTales/player.lua
 GLOBAL: scripts/DeadMerTellNoTales/global.lua
+
 MENU: scripts/DeadMerTellNoTales/settingsMenu.lua
 GLOBAL: scripts/DeadMerTellNoTales/settingsGlobal.lua
