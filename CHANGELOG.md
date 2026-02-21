@@ -1,5 +1,12 @@
 # Dead Mer Tell No Tales (OpenMW)
 
+## 1.2
+
+### Features
+
+- Added quest edgecases handling. For manual patching rare quests when NPC hands over their property to you, but does not actually despawn. Not retroactive
+- Added "Unwanted Advances" quest from Project Cyrodiil to quest edgecases
+
 ## 1.1.3
 
 ### Changes
