@@ -10,7 +10,7 @@ local sectionRecording = storage.globalSection("SettingsDeadMerTellNoTales_recor
 local sectionObjTypes = storage.globalSection("SettingsDeadMerTellNoTales_objectTypes")
 local sectionDebug = storage.globalSection("SettingsDeadMerTellNoTales_debug")
 
-local function ownershipFilter(object)
+local function selfIsOwner(object)
     return object.owner.recordId == self.recordId
 end
 
@@ -29,13 +29,13 @@ local function removeOwnership()
     local disownContainers = sectionObjTypes:get("disownContainers")
     local disownActivators = sectionObjTypes:get("disownActivators")
     local disownDoors      = sectionObjTypes:get("disownDoors")
-    
+
     local objects = {}
     for _, entry in ipairs {
-        disownItems      and aux_util.mapFilter(nearby.items,      ownershipFilter),
-        disownContainers and aux_util.mapFilter(nearby.containers, ownershipFilter),
-        disownActivators and aux_util.mapFilter(nearby.activators, ownershipFilter),
-        disownDoors      and aux_util.mapFilter(nearby.doors,      ownershipFilter),
+        disownItems      and aux_util.mapFilter(nearby.items,      selfIsOwner),
+        disownContainers and aux_util.mapFilter(nearby.containers, selfIsOwner),
+        disownActivators and aux_util.mapFilter(nearby.activators, selfIsOwner),
+        disownDoors      and aux_util.mapFilter(nearby.doors,      selfIsOwner),
     } do
         if entry then
             for _, object in ipairs(entry) do
@@ -46,7 +46,7 @@ local function removeOwnership()
 
     core.sendGlobalEvent("disown", objects)
     core.sendGlobalEvent("recordDead", self.recordId)
-    
+
     if sectionDebug:get("debugEnabled") then
         print(self.recordId .. " is recorded as dead")
     end
