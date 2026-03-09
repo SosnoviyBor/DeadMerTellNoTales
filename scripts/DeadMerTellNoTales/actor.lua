@@ -5,6 +5,7 @@ local self = require("openmw.self")
 local core = require("openmw.core")
 
 require("scripts.DeadMerTellNoTales.utils.tables")
+require("scripts.DeadMerTellNoTales.utils.consts")
 
 local sectionRecording = storage.globalSection("SettingsDeadMerTellNoTales_recording")
 local sectionObjTypes = storage.globalSection("SettingsDeadMerTellNoTales_objectTypes")
@@ -21,6 +22,23 @@ local function isGuard(actor)
         or actor.type.records[actor.recordId].class == "ordinator"
 end
 
+local function cellIgnoredDueToQuest(actor)
+    local questsByCell = IgnoredCellsWhileQuestActive[actor.cell.id]
+    if not questsByCell then return false end
+
+    for _, blacklistedQuest in ipairs(questsByCell) do
+        for _, player in ipairs(nearby.players) do
+            local quests = player.type.quests(player)
+            ---@diagnostic disable-next-line: undefined-field
+            if quests[blacklistedQuest.id].stage == blacklistedQuest.stage then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
 local function removeOwnership()
     -- guards are ignored completely
     if isGuard(self) then return end
@@ -30,16 +48,16 @@ local function removeOwnership()
     local disownActivators = sectionObjTypes:get("disownActivators")
     local disownDoors      = sectionObjTypes:get("disownDoors")
 
-    local objects = {}
+    local objects          = {}
     for _, entry in ipairs {
-        disownItems      and aux_util.mapFilter(nearby.items,      selfIsOwner),
+        disownItems and aux_util.mapFilter(nearby.items, selfIsOwner),
         disownContainers and aux_util.mapFilter(nearby.containers, selfIsOwner),
         disownActivators and aux_util.mapFilter(nearby.activators, selfIsOwner),
-        disownDoors      and aux_util.mapFilter(nearby.doors,      selfIsOwner),
+        disownDoors and aux_util.mapFilter(nearby.doors, selfIsOwner),
     } do
         if entry then
             for _, object in ipairs(entry) do
-                objects[#objects+1] = object
+                objects[#objects + 1] = object
             end
         end
     end
@@ -53,8 +71,13 @@ local function removeOwnership()
 end
 
 local function checkIfEnabled()
-    if self.enabled then return end
-    if not sectionRecording:get("recordDisabled") then return end
+    if self.enabled
+        or cellIgnoredDueToQuest(self)
+        or not sectionRecording:get("recordDisabled")
+    then
+        return
+    end
+
     removeOwnership()
 end
 

@@ -1,5 +1,12 @@
 # Dead Mer Tell No Tales (OpenMW)
 
+## 1.2.1
+
+### Features
+
+- Added support for blacklistinc certain cells from recording dead/disabled actors while certain quest is active
+- Added vanilla "Loot the Mages Guild" quest to said blacklist
+
 ## 1.2
 
 ### Features

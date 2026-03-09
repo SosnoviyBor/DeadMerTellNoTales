@@ -1,6 +1,6 @@
 local storage = require("openmw.storage")
 
-require("scripts.DeadMerTellNoTales.blacklists")
+require("scripts.DeadMerTellNoTales.utils.consts")
 
 DeadActors = {}
 local sectionDebug = storage.globalSection("SettingsDeadMerTellNoTales_debug")
@@ -34,14 +34,13 @@ end
 local function checkActorStatus(object)
     -- how tf
     if object.owner.recordId == nil then return end
-    
+
     if not DeadActors[object.owner.recordId] then return end
-    
+
     if ActorBlacklist[string.lower(object.owner.recordId)]
-       or CellBlacklist[string.lower(object.cell.name)]
+        or CellBlacklist[string.lower(object.cell.name)]
     then
         return
-
     elseif object.cell.isExterior then
         local cellCoords = tostring(object.cell.gridX) .. "," .. tostring(object.cell.gridY)
         if CellBlacklist[cellCoords] then

@@ -3,9 +3,9 @@ local core = require("openmw.core")
 require("scripts.DeadMerTellNoTales.utils.consts")
 
 local function onQuestUpdate(questId, stage)
-    local edgecase = QuestEdgecases[questId]
-    if not (edgecase and stage >= edgecase.stage) then return end
-    core.sendGlobalEvent("recordDead", edgecase.actor)
+    local questMovedNPC = NPCMovedInsteadOfDisabled[questId]
+    if not (questMovedNPC and stage >= questMovedNPC.stage) then return end
+    core.sendGlobalEvent("recordDead", questMovedNPC.actor)
 end
 
 return {
